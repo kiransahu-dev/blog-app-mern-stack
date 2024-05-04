@@ -18,10 +18,15 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import WriteIcon from "@mui/icons-material/DriveFileRenameOutline";
 import Blogs from "../pages/Blogs";
+import { useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
 
 const drawerWidth = 240;
 
 function Navbar(props) {
+  const navigate = useNavigate();
+
+  // const isLogin = useSelector((state) => state.isLogin);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -116,7 +121,13 @@ function Navbar(props) {
             }}
           >
             <WriteIcon />
-            <Button sx={{ color: "white" }}>Write</Button>
+
+            <Button
+              onClick={() => navigate("/create-blogs")}
+              sx={{ color: "white" }}
+            >
+              Write
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
