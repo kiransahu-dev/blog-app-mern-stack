@@ -27,7 +27,7 @@ const MainComp = () => {
                 <Button
                   sx={{ margin: 1, color: "black" }}
                   LinkComponent={Link}
-                  to="login"
+                  to="/"
                 >
                   Login
                 </Button>
