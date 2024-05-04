@@ -2,9 +2,12 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authAction } from "../redux/store";
 
 const LoginComp = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -26,6 +29,9 @@ const LoginComp = () => {
         password: inputs.password,
       });
       if (data.success) {
+        localStorage.setItem("userId", data?.user._id);
+        console.log(data?.user._id)
+        dispatch(authAction.login());
         alert("User logedin successfully");
         navigate("/blog");
       }
