@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import { red } from "@mui/material/colors";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function BlogCard({ title, content, username, createdAt }) {
   return (
@@ -25,8 +25,12 @@ export default function BlogCard({ title, content, username, createdAt }) {
         title={title}
         subheader={createdAt}
       />
-      <Typography>name:{username}</Typography>
-      <Typography>content: {content}</Typography>
+      <Box sx={{padding: 3}}>
+        <Typography variant="h6">Name:{username}</Typography>
+        <Typography variant="body2" color="text.secondary">
+          Content: {content}
+        </Typography>
+      </Box>
     </Card>
   );
 }
